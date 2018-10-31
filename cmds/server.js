@@ -5,6 +5,8 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server up and running on port ${process.env.port || 3000}`);
-});
+module.exports = (args) => {
+    app.listen(args._[1] || 3000, (req, res) => {
+        console.log(`Server up and running on port ${args._[1] || 3000}`);
+    });
+};

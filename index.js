@@ -28,6 +28,9 @@ module.exports = () => {
         case 'delete-all':
             require('./cmds/delete-all.js')(args);
             break
+        case 'serve':
+            require('./cmds/server.js')(args);
+            break
         default:
             console.error(`"${cmd}" is not a valid command!`);
             break
