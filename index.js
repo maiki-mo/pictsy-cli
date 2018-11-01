@@ -3,6 +3,7 @@ const minimist = require('minimist');
 module.exports = () => {
     const args = minimist(process.argv.slice(2));
     const cmd = args._[0];
+    const second = args._[1];
     switch (cmd) {
         case 'version':
             require('./cmds/version.js')(args);
@@ -30,6 +31,15 @@ module.exports = () => {
             break
         case 'serve':
             require('./cmds/server.js')(args);
+            break
+        case ('GET'):
+            if (second === 'list') {
+                require('./cmds/get-list.js');
+            } else if (second === 'show') {
+                require('./cmds/get-show.js');
+            } else {
+            console.error(`"${cmd}" requires another command!`)
+            }
             break
         default:
             console.error(`"${cmd}" is not a valid command!`);
