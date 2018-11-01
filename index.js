@@ -36,7 +36,7 @@ module.exports = () => {
             if (second === 'list') {
                 require('./cmds/get-list.js');
             } else if (second === 'show') {
-                require('./cmds/get-show.js');
+                require('./cmds/get-show.js')(args);
             } else {
             console.error(`"${cmd}" requires another command!`)
             }
