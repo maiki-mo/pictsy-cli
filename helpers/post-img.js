@@ -11,6 +11,6 @@ module.exports = async (imgData) => {
             url: imgData.url,
         }
     }).then((response) => {
-        console.log('Stored in Mongo with id:', response.data._id);
+        console.log('Stored in Mongo with id:', response.data._id['$oid']);
     })
 };
